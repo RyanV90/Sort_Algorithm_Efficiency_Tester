@@ -1,7 +1,5 @@
-#pragma once
-#include "Sort.h"
-class SelectionSort :
-    public Sort
+
+class SelectionSort 
 {
 };
 

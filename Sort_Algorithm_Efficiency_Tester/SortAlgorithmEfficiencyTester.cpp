@@ -1,3 +1,4 @@
+#include "SortEfficiencyTestFunctions.h"
 #include "BubbleSort.h"
 #include "BucketSort.h"
 #include "HeapSort.h"
@@ -8,42 +9,9 @@
 #include "SelectionSort.h"
 #include "ShellSort.h"
 #include <iostream>
-#include <vector>
-#include <ctime>
-#include <sstream>
+
 
 using namespace std;
-
-/* intializeIntegerVector()
-* 
-* Takes an integer vector and adds requested number of random integers to the vector
-*/
-
-void intializeIntegerVector(vector<int>& vector, int requestedSizeOfVector) {
-	
-	srand(time(0)); // Generates new seed for rand()
-	
-	// Adds random integer to the vector
-	while (vector.size() < requestedSizeOfVector)
-	{
-		vector.push_back(rand() % 100);
-	}
-}
-
-/* printVector()
-* 
-* Prints all indexes of vector
-*/
-
-void printVector(const vector<int>& vector) {
-	
-	// Prints each value in the vector
-	for (const int& number : vector)
-	{
-		cout << number << " ";
-	}
-	cout << endl;
-}
 
 /* main() 
 * 
@@ -53,18 +21,19 @@ void printVector(const vector<int>& vector) {
 int main() {
 
 	//Vector to be used in sorting algorithms
-	vector<int> numbers;
+	vector<int> vector;
+
+	SortEfficiencyTestFunctions sortTester(vector, 10);
 	//Initializes vector of requested size with random integers
-	intializeIntegerVector(numbers, 5);
 	//Print unsorted vector
 	cout << "Unsorted vector: ";
-	printVector(numbers);
+	sortTester.printVector(vector);
 
 	//Sort vector by insertion sort algorithm
-	InsertionSort insertionSort(numbers);
+	//InsertionSort insertionSort(numbers);
 	//Print sorted vector
-	cout << "Vector sorted by insertion sort: ";
-	printVector(numbers);
+	//cout << "Vector sorted by insertion sort: ";
+	//printVector(numbers);
 
 	return 0;
 }

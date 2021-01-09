@@ -148,9 +148,11 @@
     <ClInclude Include="RadixSort.h" />
     <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="ShellSort.h" />
+    <ClInclude Include="SortEfficiencyTestFunctions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SortAlgorithmEfficiencyTester.cpp" />
+    <ClCompile Include="SortEfficiencyTestFunctions.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

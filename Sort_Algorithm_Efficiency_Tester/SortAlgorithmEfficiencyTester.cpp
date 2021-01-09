@@ -35,11 +35,10 @@ void intializeIntegerVector(vector<int>& vector, int requestedSizeOfVector) {
 * Prints all indexes of vector
 */
 
-template<typename T>
-void printVector(const vector<T>& vector) {
+void printVector(const vector<int>& vector) {
 	
 	// Prints each value in the vector
-	for (const T& number : vector)
+	for (const int& number : vector)
 	{
 		cout << number << " ";
 	}

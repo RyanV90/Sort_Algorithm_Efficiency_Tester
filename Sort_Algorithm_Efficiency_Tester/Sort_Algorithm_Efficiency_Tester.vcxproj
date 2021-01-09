@@ -150,15 +150,6 @@
     <ClInclude Include="ShellSort.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BubbleSort.cpp" />
-    <ClCompile Include="BucketSort.cpp" />
-    <ClCompile Include="HeapSort.cpp" />
-    <ClCompile Include="InsertionSort.cpp" />
-    <ClCompile Include="MergeSort.cpp" />
-    <ClCompile Include="QuickSort.cpp" />
-    <ClCompile Include="RadixSort.cpp" />
-    <ClCompile Include="SelectionSort.cpp" />
-    <ClCompile Include="ShellSort.cpp" />
     <ClCompile Include="SortAlgorithmEfficiencyTester.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

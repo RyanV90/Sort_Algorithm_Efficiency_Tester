@@ -9,7 +9,7 @@ public:
 
 	/* InsertionSort()
 	* 
-	* Sorts a vector of type T by the insertion sort algorithm
+	* Sorts an vector of integers by the insertion sort algorithm
 	*/
 	
 	InsertionSort(vector<int>& vector) {

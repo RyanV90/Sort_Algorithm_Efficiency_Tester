@@ -8,7 +8,7 @@ using namespace std;
 //the function initializes the vector with random integers 0 - 499
 void initializeList(vector<int>& l)
 {
-	//srand(time(0));
+	srand(time(0));
 	for (int i = 0; i < l.size(); i++)
 		l[i] = (rand() % 500);
 }
@@ -18,7 +18,6 @@ void initializeList(vector<int>& l)
 template<typename T>
 void printVector(const vector<T>& l)
 {
-	cout << "Elements of the vector: ";
 	for (int i = 0; i < 20; i++) // prints only the first 20 elements
 		cout << l[i] << " ";
 	cout << endl;
@@ -258,18 +257,154 @@ void mergeSort(vector<T>& l, int i, int k)
 	}
 }
 
+//Shows the before and after of each type of sort on a vector of size 20.
+template<typename T>
+void testSortFunctionsFunctionality(vector<T>& l) {
+
+	//Selction Sort
+	initializeList(l);
+	cout << "Unsorted List: ";
+	printVector(l);
+	cout << "Sorted by selection sort: ";
+	selectionSort(l);
+	printVector(l);
+	cout << endl;
+
+	//Insertion Sort
+	initializeList(l);
+	cout << "Unsorted List: ";
+	printVector(l);
+	cout << "Sorted by insertion sort: ";
+	insertionSort(l);
+	printVector(l);
+	cout << endl;
+
+	//Quicksort
+	initializeList(l);
+	cout << "Unsorted List: ";
+	printVector(l);
+	cout << "Sorted by quicksort: ";
+	quicksort(l, 0, l.size() - 1);
+	printVector(l);
+	cout << endl;
+
+	//Shell Sort
+	initializeList(l);
+	int initialGapValue = pow(2, floor(log2(l.size())));
+	cout << "Unsorted List: ";
+	printVector(l);
+	cout << "Sorted by shell sort: ";
+	shellSort(l, initialGapValue);
+	printVector(l);
+	cout << endl;
+
+	//Radix Sort
+	initializeList(l);
+	cout << "Unsorted List: ";
+	printVector(l);
+	cout << "Sorted by radix sort: ";
+	radixSort(l);
+	printVector(l);
+	cout << endl;
+
+	//Merge Sort
+	initializeList(l);
+	cout << "Unsorted List: ";
+	printVector(l);
+	cout << "Sorted by merge sort: ";
+	mergeSort(l, 0, l.size() - 1);
+	printVector(l);
+	cout << endl;
+}
+
+//Shows the input size and number of seconds for each type of sort algorithm
+template<typename T>
+void testSortFunctionsEfficiency(vector<T>& l) {
+
+	clock_t start, stop;
+	
+	//Selection Sort
+	initializeList(l);
+	start = clock();
+	selectionSort(l);
+	stop = clock() - start;
+	printf("Sort Algorithm: Selection Sort | Input Size: %d | Time Taken: %f seconds", l.size(), (float)stop / CLOCKS_PER_SEC);
+	cout << endl;
+
+	//Insertion Sort
+	initializeList(l);
+	start = clock();
+	insertionSort(l);
+	stop = clock() - start;
+	printf("Sort Algorithm: Insertion Sort | Input Size: %d | Time Taken: %f seconds", l.size(), (float)stop / CLOCKS_PER_SEC);
+	cout << endl;
+
+	//Quicksort
+	initializeList(l);
+	start = clock();
+	quicksort(l, 0, l.size() - 1);
+	stop = clock() - start;
+	printf("Sort Algorithm: Quicksort | Input Size: %d | Time Taken: %f seconds", l.size(), (float)stop / CLOCKS_PER_SEC);
+	cout << endl;
+
+	//Radix Sort
+	initializeList(l);
+	start = clock();
+	int initialGapValue = pow(2, floor(log2(l.size())));
+	shellSort(l, initialGapValue);
+	stop = clock() - start;
+	printf("Sort Algorithm: Radix Sort | Input Size: %d | Time Taken: %f seconds", l.size(), (float)stop / CLOCKS_PER_SEC);
+	cout << endl;
+
+	//Shell Sort
+	initializeList(l);
+	start = clock();
+	radixSort(l);
+	stop = clock() - start;
+	printf("Sort Algorithm: Shell Sort | Input Size: %d | Time Taken: %f seconds", l.size(), (float)stop / CLOCKS_PER_SEC);
+	cout << endl;
+
+	//Merge Sort
+	initializeList(l);
+	start = clock();
+	mergeSort(l, 0, l.size() - 1);
+	stop = clock() - start;
+	printf("Sort Algorithm: Merge Sort | Input Size: %d | Time Taken: %f seconds", l.size(), (float)stop / CLOCKS_PER_SEC);
+	cout << endl;
+
+	cout << endl;
+}
+
+//Creates 9 vectors and tests the functionality and time efficiency of each sorting algorithm
 int main()
 {
-	vector<int> v2(50);
-	clock_t start, stop;
-	initializeList(v2);
-	printVector(v2);
-	start = clock();  // start time
-	quicksort(v2, 0, v2.size() - 1);
-	stop = clock() - start; // time elapsed
-	printVector(v2);
-	cout << "time taken was " << (double)stop / CLOCKS_PER_SEC << endl;
-	cout << "Done" << endl;
-	system("pause");
+	vector<int> v1(20); //Used to test sort algorithm functionality
+	
+	//Each vector below tests the time efficiency of each sort type with ascending input sizes.
+	vector<int> v2(1000);
+	vector<int> v3(10000);
+	vector<int> v4(50000);
+	vector<int> v5(100000);
+	vector<int> v6(150000);
+	vector<int> v7(200000);
+	vector<int> v8(250000);
+	vector<int> v9(300000);
+	
+	//Outputs the unsorted and sorted vector for each sort algorithm
+	cout << "TESTING FUNCTIONALITY OF SORTS:" << endl;
+	testSortFunctionsFunctionality(v1);
+	cout << "___________________________________________________________________________________________________________________" << endl << endl;
+	
+	//Outputs the time efficiency of each sorting algorithm with ascending input sizes
+	cout << "TESTING TIME EFFICIENCY OF SORTS:" << endl;
+	testSortFunctionsEfficiency(v2);
+	testSortFunctionsEfficiency(v3);
+	testSortFunctionsEfficiency(v4);
+	testSortFunctionsEfficiency(v5);
+	testSortFunctionsEfficiency(v6);
+	testSortFunctionsEfficiency(v7);
+	testSortFunctionsEfficiency(v8);
+	testSortFunctionsEfficiency(v9);
+	
 	return 0;
 }

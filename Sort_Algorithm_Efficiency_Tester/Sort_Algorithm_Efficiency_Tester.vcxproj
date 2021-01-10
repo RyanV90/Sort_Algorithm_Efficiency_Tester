@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SortAlgorithmEfficiencyTester.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,22 +141,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="BubbleSort.h" />
-    <ClInclude Include="BucketSort.h" />
-    <ClInclude Include="HeapSort.h" />
-    <ClInclude Include="InsertionSort.h" />
-    <ClInclude Include="MergeSort.h" />
-    <ClInclude Include="QuickSort.h" />
-    <ClInclude Include="RadixSort.h" />
-    <ClInclude Include="SelectionSort.h" />
-    <ClInclude Include="ShellSort.h" />
-    <ClInclude Include="SortEfficiencyTestFunctions.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="SortAlgorithmEfficiencyTester.cpp" />
-    <ClCompile Include="SortEfficiencyTestFunctions.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

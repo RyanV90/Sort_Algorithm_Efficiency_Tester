@@ -13,7 +13,6 @@ void initializeList(vector<int>& l)
 		l[i] = (rand() % 500);
 }
 
-
 //function receives a vector of template type T
 //and prints the elements of the vector
 template<typename T>
@@ -23,65 +22,6 @@ void printVector(const vector<T>& l)
 	for (int i = 0; i < 20; i++) // prints only the first 20 elements
 		cout << l[i] << " ";
 	cout << endl;
-}
-
-//============================= Linear Search================
-
-//The function linearsearch receives a vector and a key to search for
-//If search is successful the index of the key is returned
-//If serach fails -1 is returned
-template<typename T>
-int linearSearch(const vector<T>& l, T key)
-{
-	for (int i = 0; i < l.size(); i++)
-		if (l[i] == key)
-			return i;  // return first instance of the key. Function terminates
-	return -1;  // search failed, return index -1.
-}
-
-//==================================  Binary Search iterative
-
-//Function receives a vector, the size of the list( really not necessay) and the key
-//to search for.
-//If search is successful the index of the key is returned
-//If serach fails -1 is returned
-
-template<typename T>
-int BinarySearchIterative(const vector<T>& numbers, int numbersSize, T key)
-{
-	int low = 0;
-	int mid = 0;
-	int high = numbersSize - 1;
-	while (high >= low)
-	{
-		mid = (low + high) / 2; // index of the middle element
-		if (numbers[mid] < key)
-			low = mid + 1;
-		else if (numbers[mid] > key)
-			high = mid - 1;
-		else if (numbers[mid] == key)
-			return mid;
-	}
-	return -1; // failed 
-}
-
-//========================= Binary Search  Recursive implementation ===
-//Binary Search Recursive
-template<typename T>
-int BinarySearchRec(const vector<T>& numbers, int low, int high, T key)
-{
-	if (high < low)
-		return -1;
-	else
-	{
-		int mid = (low + high) / 2; // index of the middle element
-		if (numbers[mid] < key)
-			return BinarySearchRec(numbers, mid + 1, high, key);
-		else if (numbers[mid] > key)
-			return BinarySearchRec(numbers, low, mid - 1, key);
-		else if (numbers[mid] == key)
-			return mid;
-	}
 }
 
 //========================Selection Sort===============================
@@ -186,7 +126,6 @@ void insertionSortInterleaved(vector<T>& l, int startIndex, int gap)
 	}
 }
 
-
 //ShellSort makes call to insertionSortInterleaved for each sublist
 template <typename T>
 void shellSort(vector<T>& l, int initialGapValue) {
@@ -196,7 +135,6 @@ void shellSort(vector<T>& l, int initialGapValue) {
 			insertionSortInterleaved(l, i, gapValue);
 	}
 }
-
 
 //=============================  Radix Sort =================
 // Returns the length, in number of digits, of value
@@ -322,7 +260,6 @@ void mergeSort(vector<T>& l, int i, int k)
 
 int main()
 {
-
 	vector<int> v2(50);
 	clock_t start, stop;
 	initializeList(v2);

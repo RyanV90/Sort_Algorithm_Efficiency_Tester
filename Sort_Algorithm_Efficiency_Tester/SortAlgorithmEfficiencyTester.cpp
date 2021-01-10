@@ -18,7 +18,7 @@ void initializeList(vector<int>& l)
 template<typename T>
 void printVector(const vector<T>& l)
 {
-	for (int i = 0; i < 20; i++) // prints only the first 20 elements
+	for (int i = 0; i < l.size(); i++) // prints only the first 20 elements
 		cout << l[i] << " ";
 	cout << endl;
 }
